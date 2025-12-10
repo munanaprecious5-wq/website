@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Interactive Site</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling (CSS) */
+:root {
+    /* Define a color variable for the main 'Chocolate' brown */
+    --color-chocolate: #583300; 
+
+    /* LIGHT THEME: Milk Chocolate & Cream */
+    --light-bg: #f7f3ed; /* Creamy background */
+    --light-text: #333; /* Dark text for readability */
+    --light-primary: #8B4513; /* Primary accent: Saddle Brown / Milk Chocolate */
+    
+    /* DARK THEME: Dark Chocolate & Gold/Bronze */
+    --dark-bg: #2C1A00; /* Very Dark Chocolate */
+    --dark-text: #f7f3ed; /* Creamy text for contrast */
+    --dark-primary: #B8860B; /* Primary accent: Dark Goldenrod (Bronze-like) */
+}
+
+/* Base Body Styling (Use of margin and padding) */
+body {
+    transition: background-color 0.8s, color 0.8s; /* Smoother transition */
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Light Theme Application */
+body.light-theme {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+/* Dark Theme Application */
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--color-chocolate);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white; /* Header text white for contrast */
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Use of hover effect */
+nav a:hover { 
+    color: #e0e0e0; /* Slightly lighter white on hover */
+}
+
+/* --- Main Content --- */
+main {
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Use of class */
+.js-feature {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Form Styling (Use of ID) --- */
+#contact-form-container {
+    background-color: rgba(139, 69, 19, 0.1); /* Semi-transparent Milk Chocolate */
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid var(--light-primary);
+}
+
+body.dark-theme #contact-form-container {
+    background-color: rgba(184, 134, 11, 0.1); /* Semi-transparent Goldenrod */
+    border-left: 5px solid var(--dark-primary);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn, #theme-switcher {
+    background-color: var(--light-primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* Rounded button for professionalism */
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+body.dark-theme .submit-btn, body.dark-theme #theme-switcher {
+    background-color: var(--dark-primary);
+    color: var(--dark-bg);
+}
+
+/* Use of hover effect */
+.submit-btn:hover, #theme-switcher:hover {
+    background-color: #693410; /* Darker milk chocolate for hover */
+}
+body.dark-theme .submit-btn:hover, body.dark-theme #theme-switcher:hover {
+    background-color: #92750a; /* Darker goldenrod for hover */
+}
+
+.message.error {
+    color: #ff4500; /* Orange-Red for error */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.message.success {
+    color: var(--light-primary);
+    font-weight: bold;
+    margin-top: 10px;
+}
+body.dark-theme .message.success {
+    color: var(--dark-primary);
+}
+
+/* Styled Image */
+#styled-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    border: 5px solid var(--light-primary);
+    border-radius: 8px;
+}
+body.dark-theme #styled-image {
+    border-color: var(--dark-primary);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-chocolate);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body class="light-theme">
+    <header>
+        <div class="logo"> Interactive Web Project</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+        <button id="theme-switcher">Toggle Dark Mode</button>
+    </header>
+
+    <main>
+        <section id="home" class="js-feature">
+            <h2>Welcome to Our interactive web Project </h2>
+            <p>Where we show you different contact forms</p>
+            <img src="placeholder.jpg" alt=" truffle image" id="styled-image">
+        </section>
+        
+        <section id="contact" class="js-feature">
+            <h2>Feature 1: Contact Form Validation</h2>
+            <div id="contact-form-container">
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <button type="submit" class="submit-btn">Validate & Submit</button>
+                </form>
+                <p id="form-message" class="message"></p>
+            </div>
+        </section>
+
+        <section id="about" class="js-feature">
+            <h2>Feature 2: Theme Switcher</h2>
+            <p>Use the button in the header to switch between the bright, milk chocolate theme and the deep,dark chocolate theme.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Interactive Project | All Rights Reserved. | <a href="#contact">Feedback</a></p>
+        <p>Created by MUNANA Precious | Phone: (0788625242)</p>
+            <p>&copy; 10/12/2025 | Email: munanaprecious@gmail.com | <a href="#feedback-section">Give Feedback</a></p></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
